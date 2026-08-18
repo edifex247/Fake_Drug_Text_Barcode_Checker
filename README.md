@@ -1,5 +1,9 @@
 # 💊 Fake Drug Text/Barcode Checker
+## 🌐 Live Demo
 
+👉 **[Launch the Fake Drug Text/Barcode Checker](https://fakedrugtextbarcodechecker-9orxbojyhmsqd72dwqza3j.streamlit.app/)**
+
+Try the live AI/ML medicine verification prototype directly in your browser.
 ## AI-Assisted Medicine Verification Prototype
 
 An AI/ML-powered prototype designed to assess supplied medicine information using drug text, NAFDAC reference data, regulatory-alert data, barcode recognition, and machine-learning classification.

@@ -1,0 +1,21 @@
+drug_name,nafdac_valid,batch_valid,barcode_valid,manufacturer_known,text_complete,label
+Paracetamol,1,1,1,1,1,1
+Amoxicillin,1,1,1,1,1,1
+Artemether Lumefantrine,1,1,1,1,1,1
+Metformin,1,1,1,1,1,1
+Ibuprofen,1,1,1,1,1,1
+Cetirizine,1,1,1,1,1,1
+Omeprazole,1,1,1,1,1,1
+Diclofenac,1,1,1,1,1,1
+Aspirin,1,1,1,1,1,1
+Azithromycin,1,1,1,1,1,1
+Paracetamol,0,1,1,1,1,0
+Amoxicillin,1,0,1,1,1,0
+Artemether Lumefantrine,1,1,0,1,1,0
+Metformin,1,1,1,0,1,0
+Ibuprofen,0,0,1,1,0,0
+Cetirizine,1,0,0,1,0,0
+Omeprazole,0,1,0,0,1,0
+Diclofenac,1,0,1,0,0,0
+Aspirin,0,0,0,1,0,0
+Azithromycin,1,1,0,0,0,0

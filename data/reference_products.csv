@@ -1,0 +1,11 @@
+drug_name,nafdac_number,batch_number,barcode,manufacturer
+Paracetamol,DEMO-NAFDAC-001,PARA001,615110000001,Demo Pharma Ltd
+Amoxicillin,DEMO-NAFDAC-002,AMOX001,615110000002,Demo Pharma Ltd
+Artemether Lumefantrine,DEMO-NAFDAC-003,ART001,615110000003,Demo Pharma Ltd
+Metformin,DEMO-NAFDAC-004,MET001,615110000004,Demo Pharma Ltd
+Ibuprofen,DEMO-NAFDAC-005,IBU001,615110000005,Demo Pharma Ltd
+Cetirizine,DEMO-NAFDAC-006,CET001,615110000006,Demo Pharma Ltd
+Omeprazole,DEMO-NAFDAC-007,OME001,615110000007,Demo Pharma Ltd
+Diclofenac,DEMO-NAFDAC-008,DIC001,615110000008,Demo Pharma Ltd
+Aspirin,DEMO-NAFDAC-009,ASP001,615110000009,Demo Pharma Ltd
+Azithromycin,DEMO-NAFDAC-010,AZI001,615110000010,Demo Pharma Ltd

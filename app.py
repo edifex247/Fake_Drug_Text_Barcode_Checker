@@ -24,59 +24,28 @@ st.set_page_config(
 
 st.markdown("""
 <style>
-
-.main {
-    padding-top: 1rem;
-}
-
-.block-container {
-    max-width: 900px;
-    padding-top: 2rem;
-}
-
-.hero {
-    padding: 1.8rem;
-    border-radius: 18px;
-    background: linear-gradient(
-        135deg,
-        #eef7ff 0%,
-        #f8fbff 100%
-    );
-    border: 1px solid #d9eaf7;
-    margin-bottom: 1.5rem;
-}
-
-.hero-title {
-    font-size: 2.2rem;
-    font-weight: 750;
-    margin-bottom: 0.3rem;
-}
-
-.hero-subtitle {
-    font-size: 1.05rem;
-    color: #52606d;
-}
-
-.section-card {
-    padding: 1.2rem;
-    border-radius: 14px;
-    border: 1px solid #e1e7ec;
-    background: white;
-    margin-bottom: 1rem;
-}
-
-.small-note {
-    color: #667085;
-    font-size: 0.9rem;
-}
-
-.footer {
-    text-align: center;
-    color: #667085;
-    font-size: 0.85rem;
-    padding: 2rem 0 1rem 0;
-}
-
+.stApp { background:#f7f9fc; }
+.block-container { max-width:1180px; padding:4.5rem 2rem 3rem; }
+.topbar { display:flex; justify-content:space-between; align-items:center; padding:.7rem 0 1rem; border-bottom:1px solid #e4e7ec; margin-bottom:1.5rem; }
+.brand { font-size:1.05rem; font-weight:800; color:#172b4d; }
+.brand span { color:#0b6bcb; }
+.trust-pill { padding:.35rem .7rem; border-radius:999px; background:#ecfdf3; color:#027a48; font-size:.78rem; font-weight:700; border:1px solid #abefc6; }
+.hero { padding:2.5rem 2.2rem; border-radius:24px; background:linear-gradient(135deg,#eaf4ff 0%,#fff 55%,#f2f8ff 100%); border:1px solid #d9eaf7; box-shadow:0 12px 35px rgba(16,24,40,.06); margin-bottom:1.2rem; }
+.eyebrow { color:#0b6bcb; font-size:.82rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; margin-bottom:.55rem; }
+.hero-title { font-size:clamp(2rem,4vw,3.25rem); line-height:1.08; font-weight:850; color:#172b4d; margin-bottom:.65rem; }
+.hero-subtitle { font-size:1.15rem; color:#52606d; max-width:760px; line-height:1.6; }
+.hero-note { margin-top:1.15rem; color:#475467; font-size:.92rem; }
+.feature-card { padding:1.15rem; min-height:150px; border-radius:18px; background:#fff; border:1px solid #e4e7ec; box-shadow:0 6px 20px rgba(16,24,40,.04); }
+.feature-icon { font-size:1.45rem; margin-bottom:.4rem; }
+.feature-title { font-weight:800; color:#172b4d; margin-bottom:.35rem; }
+.feature-text { color:#667085; font-size:.86rem; line-height:1.45; }
+.section-heading { color:#172b4d; font-weight:800; font-size:1.35rem; margin:1.7rem 0 .3rem; }
+.section-subheading { color:#667085; font-size:.92rem; margin-bottom:1rem; }
+.official-box { padding:1.1rem 1.25rem; border-radius:16px; background:#f0f7ff; border:1px solid #cfe5ff; margin-top:1rem; }
+.official-title { font-weight:800; color:#172b4d; margin-bottom:.25rem; }
+.footer { text-align:center; color:#667085; font-size:.82rem; padding:2.5rem 0 1rem; border-top:1px solid #e4e7ec; margin-top:2rem; }
+div.stButton > button[kind="primary"] { border-radius:12px; min-height:3rem; font-weight:800; }
+@media (max-width:768px) { .block-container{padding:1rem 1rem 2rem;} .hero{padding:1.6rem 1.25rem;border-radius:18px;} }
 </style>
 """, unsafe_allow_html=True)
 
@@ -179,30 +148,29 @@ def scan_barcode(uploaded_file):
 # ==========================================================
 
 st.markdown("""
+<div class="topbar">
+    <div class="brand">💊 <span>Fake Drug</span> Text/Barcode Checker</div>
+    <div class="trust-pill">● Prototype Online</div>
+</div>
 <div class="hero">
-
-<div class="hero-title">
-💊 Fake Drug Text/Barcode Checker
-</div>
-
-<div class="hero-subtitle">
-AI-Assisted Medicine Verification Prototype
-</div>
-
-<br>
-
-An AI/ML prototype that combines drug information,
-barcode recognition, reference data and regulatory
-alert information to identify potentially suspicious products.
-
+    <div class="eyebrow">AI-Assisted Medicine Verification</div>
+    <div class="hero-title">Verify medicine information with confidence.</div>
+    <div class="hero-subtitle">
+        A public-health technology prototype combining NAFDAC reference data,
+        regulatory alerts, barcode recognition and machine-learning assessment
+        for preliminary medicine screening.
+    </div>
+    <div class="hero-note">
+        ⚠️ Prototype only — authoritative medicine verification remains with official
+        NAFDAC channels and qualified professionals.
+    </div>
 </div>
 """, unsafe_allow_html=True)
 
 
-st.warning(
-    "⚠️ Prototype only. This system does not replace official "
-    "NAFDAC verification, laboratory testing, or professional "
-    "pharmaceutical advice."
+st.info(
+    "Use this tool for preliminary screening. A result from this prototype "
+    "does not confirm that a medicine is genuine, counterfeit, or safe."
 )
 
 
@@ -253,7 +221,8 @@ positive or suspicious training examples.
 # INPUT SECTION
 # ==========================================================
 
-st.markdown("## 🔎 Step 1 — Enter Drug Information")
+st.markdown('<div class="section-heading">🔎 Verify a medicine</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-subheading">Enter any available product details. More complete information can improve the assessment.</div>', unsafe_allow_html=True)
 
 col1, col2 = st.columns(2)
 
@@ -282,21 +251,26 @@ with col2:
         placeholder="Enter manufacturer"
     )
 
-    barcode = st.text_input(
-        "Barcode",
-        placeholder="Enter barcode manually"
-    )
 
 
 # ==========================================================
 # BARCODE UPLOAD
 # ==========================================================
 
-st.markdown("## 📦 Step 2 — Barcode Verification")
+st.markdown('<div class="section-heading">📦 Barcode verification</div>', unsafe_allow_html=True)
+st.markdown('<div class="section-subheading">Enter a barcode manually or upload a clear image for automatic recognition.</div>', unsafe_allow_html=True)
 
 st.caption(
     "Enter a barcode manually or upload a clear image of the barcode."
 )
+
+barcode_manual = st.text_input(
+    "Barcode (manual)",
+    placeholder="e.g. 615110000001",
+    help="Type the barcode digits exactly as printed on the medicine package."
+)
+
+barcode = barcode_manual.strip()
 
 uploaded_barcode = st.file_uploader(
     "📷 Upload barcode image",
@@ -1057,6 +1031,27 @@ if check_button:
         # SAFETY NOTICE
         # ==================================================
 
+        st.markdown(
+            """
+            <div class="official-box">
+                <div class="official-title">🏛️ Need authoritative verification?</div>
+                <div style="color:#667085; font-size:0.9rem;">
+                    Use the official NAFDAC services for regulatory confirmation.
+                </div>
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
+        official_col1, official_col2 = st.columns(2)
+        with official_col1:
+            st.link_button("🏛️ Verify with Official NAFDAC",
+                           "https://registration.nafdac.gov.ng/",
+                           use_container_width=True)
+        with official_col2:
+            st.link_button("📚 Search NAFDAC Greenbook",
+                           "https://greenbook.nafdac.gov.ng/",
+                           use_container_width=True)
+
         st.warning(
             "Important: This is an AI/ML prototype. It cannot "
             "confirm that a medicine is genuine or counterfeit. "
@@ -1072,10 +1067,8 @@ if check_button:
 
 st.markdown("""
 <div class="footer">
-
-<strong>Fake Drug Text/Barcode Checker</strong><br>
-AI/ML Capstone Prototype • Demonstration System<br><br>
-Not a substitute for official regulatory verification.
-
+    <strong>💊 Fake Drug Text/Barcode Checker</strong><br>
+    AI/ML Capstone Prototype • Demonstration System<br>
+    Preliminary screening only • Not a substitute for official NAFDAC verification
 </div>
 """, unsafe_allow_html=True)

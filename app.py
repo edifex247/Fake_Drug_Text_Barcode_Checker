@@ -221,6 +221,35 @@ positive or suspicious training examples.
 # INPUT SECTION
 # ==========================================================
 
+st.markdown(
+    """
+    <div class="official-box">
+        <div class="official-title">🏛️ Official NAFDAC services</div>
+        <div style="color:#667085; font-size:0.9rem;">
+            Use these official services for authoritative regulatory verification
+            after or alongside this prototype's preliminary screening.
+        </div>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+official_top_1, official_top_2 = st.columns(2)
+
+with official_top_1:
+    st.link_button(
+        "🏛️ Verify with Official NAFDAC",
+        "https://registration.nafdac.gov.ng/",
+        use_container_width=True
+    )
+
+with official_top_2:
+    st.link_button(
+        "📚 Search NAFDAC Greenbook",
+        "https://greenbook.nafdac.gov.ng/",
+        use_container_width=True
+    )
+
 st.markdown('<div class="section-heading">🔎 Verify a medicine</div>', unsafe_allow_html=True)
 st.markdown('<div class="section-subheading">Enter any available product details. More complete information can improve the assessment.</div>', unsafe_allow_html=True)
 
@@ -1036,7 +1065,7 @@ if check_button:
             <div class="official-box">
                 <div class="official-title">🏛️ Need authoritative verification?</div>
                 <div style="color:#667085; font-size:0.9rem;">
-                    Use the official NAFDAC services for regulatory confirmation.
+                    Use the official NAFDAC services for authoritative regulatory confirmation.
                 </div>
             </div>
             """,
